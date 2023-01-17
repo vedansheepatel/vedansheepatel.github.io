@@ -1,0 +1,742 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Electronics Research Lab</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+.goback{
+  position: fixed;	
+  left: 1rem;
+  top: 5;
+  opacity: .8;
+  padding: 0;
+  border-radius: .4rem;
+  text-decoration: none;
+  transition: .4s;
+}
+
+.goback__icon:hover{
+	color: #9410e7;
+}
+
+.goback__icon{
+  font-size: 2.5rem;
+  color: #000;
+  align-items: center;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"><article id="c820837a-8b41-414d-ad6f-8ca353fe8640" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/credit-card_green.svg"/></div><h1 class="page-title">Electronics Research Lab</h1></header><div class="page-body"><p id="3f3f3ae2-bea3-47bf-bffb-f7319e8df0e8" class="">
+</p><figure id="f9eba659-fd60-462a-8c1b-a3c2dd00d96b" class="image"><a href="Electronics Research Lab-img/intro.png"><img style="width:1909px" src="Electronics Research Lab-img/intro.png"/></a></figure><h1 id="b08700b1-1abd-45e3-9c40-8c7f380e5278" class="">Story </h1><h3 id="f0d904b8-cc7f-42de-ab97-d0a89f66d8ee" class="">Secret Location - Base</h3><p id="84a536b7-f45d-42ca-a2b2-f1b8a60c96fb" class="">“Welcome back AGENT. It seems like you’ve got a marvelous lead that perhaps gives a clue about where you should head to next. Visit the lab, and talk to that Dr. Klostermann, or is it Cloysterman?, he will know how to decrypt the device.. you would think”. … Dr Klostermann: “Welcome to the technical department AGENT, I’m Dr. Klostermann, and this is my assistant, Konstantin. Let’s not waste any time, is that the device that you’re holding in your hand? Konstantin, start the basic procedure.”</p><h1 id="586382c2-00a2-4d8b-91df-6586ebc393d9" class="">Challenge</h1><p id="dbedd6cf-5554-40f5-bfb6-c558aee6e49a" class=""><strong>Electronics Research Lab</strong> <strong>(hw)</strong></p><p id="6d8435b3-63f2-4ac5-8fc0-e1cee9b9462e" class="">Welcome back AGENT. It seems like you got a lead that perhaps gives a clue about where the next journey on your quest goes. Visit the lab, and talk to Dr. Klostermann, he will know how to decrypt the device.</p><h3 id="6479a9f1-38fc-49be-b0d6-d953b94260ed" class=""><summary>Attachment</summary></details></h3><div class="indented"><figure id="53a0beac-46d0-43c0-a6fe-ec2789229510"><div class="source"><a href="Electronics Research Lab-img/attachment.zip">Attachment</a></div></figure></div><p id="9e669fd9-4ecd-45a1-b583-92299dbfbc12" class="">The attachment given consists of two files; <code>chal.c</code> and <code>pico.uf2</code>. I could not open the pico.uf2 file on my computer, and since I did not know what a uf2 file was, upon googling I found the file type was related to Raspberry Pi Pico. I did not have a Raspberry Pi to work with so I decided to focus on the chal.c file to solve the challenge. </p><h1 id="0d09fd60-1934-4530-89df-e2d434c48f86" class="">Solution</h1><p id="5850152c-ab23-42dd-bb84-b3d34b72d82a" class="">The chal.c file opens to a code file, consisting numerous alternating <code>gpio_set_mask</code> and <code>gpio_clr_mask</code> calls in a for loop. Googling these commands, I found the following definitions. </p><div id="f6e9e4f7-855d-4ac3-b38a-f1c20c54fc08" class="column-list"><div id="670cbc5d-771c-4df1-9b0e-7edc58e668c1" style="width:50%" class="column"><figure id="cf297075-eb40-48f8-b508-0fed2d6ad72a" class="image" style="text-align:left"><a href="Electronics Research Lab-img/set_mask.png"><img style="width:288px" src="Electronics Research Lab-img/set_mask.png"/></a></figure></div><div id="6b37ccb5-1e76-48e2-bb85-20a3b56abcf6" style="width:50%" class="column"><figure id="0a8d1461-d411-4963-a928-f3e80304bf1d" class="image" style="text-align:center"><a href="Electronics Research Lab-img/clr_mask.png"><img style="width:288px" src="Electronics Research Lab-img/clr_mask.png"/></a></figure></div></div><p id="b6fd81c8-c850-4eb6-abf3-95f962fbe281" class="">
+</p><p id="e1c41757-c50d-40af-b9f2-75c121434e0c" class="">Looking at the code, the first line took in 67 as the parameter: <code>gpio_set_mask(67)</code>, considering this code uncovers the flag value, I figured the parameters might be ASCII values. 67 in ASCII converts to “C”, which should be the starting of the flag “CTF{…}”. However, the other parameters were out of the ASCII range so I could not directly convert them. </p><p id="26722798-4f54-4a92-b4d1-ceaba24f1325" class="">Looking at the definitions above, each of these commands requires Bitmask of GPIO values as its parameter. Not knowing Bitmasks, I searched a bit more, and this is what I understood. </p><p id="3e61d853-4e77-41f5-9bab-2c4b8f6513bb" class="">A Bitmask transforms an array of bits using another array through operations. </p><p id="c0edbfe7-7fcf-4e2d-967b-50c65968e9b3" class="">For example; a Bitmask with OR operation would output the following result.</p><figure id="4a051ce0-916d-4d6d-980f-1b2a091c1355" class="image"><a href="Electronics Research Lab-img/bitmask.png"><img style="width:240px" src="Electronics Research Lab-img/bitmask.png"/></a></figure><p id="866bac45-e12d-4831-9db9-3e59b49aa8ff" class="">
+</p><p id="050c23ef-ba1c-4df1-a68e-a7227bd41673" class="">Using this information, the code was much easier to understand. The parameter value in <code>set_mask()</code> is the mask used to set the bits in the previous value to high and the <code>clr_mask() </code>parameter value would follow, clearing the bits to low. The <code>sleep()</code> command then stores the final value of the 2 operations, which would be one of the letter/number of the final flag. </p><p id="9fd71dd9-82d5-496f-ab90-9784df7f79b5" class="">To go through the operations of each line and store the sleep() values, I needed a script of some sort. Firstly, I needed all the mask values in order to do operations on them, so I made the given code into a string value then found and stored all the parameter values used into a list. </p><p id="cfcebfee-44d6-416e-97ca-7c495e8eacfd" class="">Now, using the list of masks, I had to apply the set and clear commands in order and keep the found flag values in a variable. To set the masks, (observing from the bitmask example above) using the <code>|</code> (OR) operation would successfully do so. Clearing the mask however would require using a NAND operation, which would set the bits to low. So in the script, the mask bits will first be inverted using <code>~</code> and then the AND (<code>&amp;</code>) operation will be applied. A Boolean is used to track the alternation between the set and clear commands. </p><p id="b49afd62-11ad-4a3c-967c-79cbef4214f5" class="">Here is the full script:</p><pre id="fa83d083-7b79-4042-a18e-41350cb61af5" class="code"><code>import re 
+
+# string of the given code
+mask_string = (&quot;gpio_set_mask(67)gpio_clr_mask(0)gpio_set_mask(20)gpio_clr_mask(3) gpio_set_mask(2) gpio_clr_mask(16)&quot;
+&quot;gpio_set_mask(57) gpio_clr_mask(4)gpio_set_mask(0)gpio_clr_mask(25)gpio_set_mask(5)gpio_clr_mask(2)gpio_set_mask(18)&quot;
+&quot;gpio_clr_mask(65)gpio_set_mask(1)gpio_clr_mask(2)gpio_set_mask(64)gpio_clr_mask(17)gpio_set_mask(2)gpio_clr_mask(0)&quot;
+&quot;gpio_set_mask(1)gpio_clr_mask(6)gpio_set_mask(18)gpio_clr_mask(65)gpio_set_mask(1)gpio_clr_mask(0)gpio_set_mask(4)&quot;
+&quot;gpio_clr_mask(2)gpio_set_mask(0)gpio_clr_mask(0)gpio_set_mask(64)gpio_clr_mask(16)gpio_set_mask(16)gpio_clr_mask(64)&quot;
+&quot;gpio_set_mask(2)gpio_clr_mask(4)gpio_set_mask(0)gpio_clr_mask(3)gpio_set_mask(9)gpio_clr_mask(0)gpio_set_mask(0)&quot;
+&quot;gpio_clr_mask(1)gpio_set_mask(0)gpio_clr_mask(8)gpio_set_mask(8)gpio_clr_mask(0);gpio_set_mask(65)gpio_clr_mask(24)&quot;
+&quot;gpio_set_mask(22)gpio_clr_mask(64)gpio_set_mask(0)gpio_clr_mask(0)gpio_set_mask(0)gpio_clr_mask(5)gpio_set_mask(0)&quot;
+&quot;gpio_clr_mask(2)gpio_set_mask(65)gpio_clr_mask(16)gpio_set_mask(22)gpio_clr_mask(65)gpio_set_mask(1)gpio_clr_mask(6)&quot;
+&quot;gpio_set_mask(4)gpio_clr_mask(0)gpio_set_mask(66)gpio_clr_mask(21)gpio_set_mask(1)gpio_clr_mask(0)gpio_set_mask(0)&quot;
+&quot;gpio_clr_mask(2)gpio_set_mask(24)gpio_clr_mask(65)gpio_set_mask(67)gpio_clr_mask(24)gpio_set_mask(24)gpio_clr_mask(67)&quot;
+&quot;gpio_set_mask(2)gpio_clr_mask(8)gpio_set_mask(65)gpio_clr_mask(18)gpio_set_mask(16)gpio_clr_mask(64)gpio_set_mask(2)&quot;
+&quot;gpio_clr_mask(0)gpio_set_mask(68)gpio_clr_mask(19)gpio_set_mask(19)gpio_clr_mask(64)gpio_set_mask(72)gpio_clr_mask(2)&quot;
+&quot;gpio_set_mask(2)gpio_clr_mask(117)gpio_put_all(0)&quot;)
+
+#find all the mask values from the given code and store them in an array
+masks = re.findall(r&quot;\(\s*\+?(-?\d+)\s*\)&quot;, mask_string)
+
+# alternate between set_mask and clr_mask using a boolean
+bitmask = True
+
+# global value / set as 0 initally 
+val = 0
+
+# flag&#x27;s string
+flag = &quot;&quot;
+
+for mask in masks:
+    if bitmask:
+        # if it is a set_mask, then use the OR operation
+        val = val | int(mask)
+    else:
+        #if it is a clr_mask, then invert the mask and use NAND operation
+        val = val &amp; ~int(mask)
+
+        # find the ascii character value of the value and store it in the flag
+        flag = flag + (chr(val))
+        
+    # switch the bitmask boolean value
+    bitmask = not bitmask
+
+print(flag)</code></pre><p id="208f2d79-5149-4834-b653-9ab1ec8637a8" class="">
+</p><figure id="35036564-9bdd-4af7-a2a3-ea18aaccc4f0" class="image"><a href="Electronics Research Lab-img/script.png"><img style="width:1843px" src="Electronics Research Lab-img/script.png"/></a></figure><p id="70818ff0-1128-465c-90f0-a52a19e505dd" class="">
+</p><p id="6b2a6b92-8425-4e40-b267-e5b2824acde3" class="">The code, when run, prints the flag CTF{be65dfa2355e5309808a7720a615bca8c82a13d7}. Inputting that flag into the answer box, the task is successfully completed!</p><p id="03e7dab7-cb3b-4817-81ef-5584ac2a6c2a" class="">
+</p><figure id="ec04974c-aa52-4dd0-b145-1ab7a1f8d764" class="image"><a href="Electronics Research Lab-img/taskcompleted.png"><img style="width:1908px" src="Electronics Research Lab-img/taskcompleted.png"/></a></figure><p id="88e8d709-2e5f-4b23-b93d-d63897863509" class="">
+</p></div><a href="javascript:history.back()" class="goback" id="go-back">
+	<i class="uil-arrow-left goback__icon"></i>
+  </a></article></body></html>
