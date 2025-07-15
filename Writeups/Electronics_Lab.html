@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vedanshee | Electronics Research Lab</title>
+  <meta name="title" content="Vedanshee | Electronics Research Lab">
+  <meta name="description" content="This is a personal portfolio made by Vedanshee">
+
+  <link rel="stylesheet" href="../assets/styles/root.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/pages/labs.css">
+  <link rel="stylesheet" href="../assets/styles/components/card.css">
+  <link rel="stylesheet" href="../assets/styles/pages/writeups.css">
+
+</head>
+<body>
+
+<section id="electronicslab">
+
+<button class="btn btn-small btn-primary" onclick="window.location.href='../labs&learning.html'">back</button>
+<div class = "container">
+  <h1>Electronics Research Lab – Task 4</h1>
+  <p><strong>By Vedanshee Patel</strong></p>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Four/intro.png" alt="Research Lab Mission">
+  </figure>
+
+  <h2>🕵️‍♀️ Story</h2>
+  <p class="outlined">
+    <strong>Secret Location – Base</strong><br>
+    “Welcome back AGENT. It seems like you’ve got a marvelous lead that perhaps gives a clue about where you should head to next. Visit the lab, and talk to that Dr. Klostermann, or is it Cloysterman?, he will know how to decrypt the device.. you would think”. … Dr Klostermann: “Welcome to the technical department AGENT, I’m Dr. Klostermann, and this is my assistant, Konstantin. Let’s not waste any time, is that the device that you’re holding in your hand? Konstantin, start the basic procedure.”
+  </p>
+
+  <h2>🧪 Challenge – Electronics Research Lab (hw)</h2>
+  <div class="outlined">
+  <p>
+    Welcome back AGENT. It seems like you got a lead that perhaps gives a clue about where the next journey on your quest goes. Visit the lab, and talk to Dr. Klostermann, he will know how to decrypt the device.
+  </p>
+
+  <a href="../assets/images/Labs/CTF_gallery/Four/attachment.zip" target="_blank">🔗 Access Zip File Attachment Provided</a>
+  <p>The attachment given consists of two files; <code>chal.c</code> and <code>pico.uf2</code>. I could not open the <code>pico.uf2</code> file on my computer, and since I did not know what a uf2 file was, upon googling I found the file type was related to Raspberry Pi Pico. I did not have a Raspberry Pi to work with so I decided to focus on the <code>chal.c</code> file to solve the challenge. </p>
+
+</div>
+  <h2>🧠 Solution Process</h2>
+  <div class="outlined">
+  <p>
+    The chal.c file opens to a code file, consisting numerous alternating <code>gpio_set_mask</code> and <code>gpio_clr_mask</code> calls in a for loop. Googling these commands, I found the following definitions. 
+  </p>
+<figure>
+    <img src="../assets/images/Labs/CTF_gallery/Four/set_mask.png" alt="Set mask">
+  </figure>
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Four/clr_mask.png" alt=" Clr Mask">
+  </figure>
+  <p>Looking at the code, the first line took in 67 as the parameter: <code>gpio_set_mask(67)</code>, considering this code uncovers the flag value, I figured the parameters might be ASCII values. 67 in ASCII converts to “C”, which should be the starting of the flag “CTF{…}”. However, the other parameters were out of the ASCII range so I could not directly convert them. 
+
+Looking at the definitions above, each of these commands requires Bitmask of GPIO values as its parameter. Not knowing Bitmasks, I searched a bit more, and this is what I understood. 
+
+A Bitmask transforms an array of bits using another array through operations. 
+
+For example; a Bitmask with OR operation would output the following result.</p>
+
+ <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Four/bitmask.png" alt=" BitMask">
+  </figure>
+
+  <p>
+    Using this information, the code was much easier to understand. The parameter value in <code>set_mask()</code> is the mask used to set the bits in the previous value to high and the <code>clr_mask()</code> parameter value would follow, clearing the bits to low. The <code>sleep()</code> command then stores the final value of the 2 operations, which would be one of the letter/number of the final flag. 
+
+To go through the operations of each line and store the sleep() values, I needed a script of some sort. Firstly, I needed all the mask values in order to do operations on them, so I made the given code into a string value then found and stored all the parameter values used into a list. 
+
+Now, using the list of masks, I had to apply the set and clear commands in order and keep the found flag values in a variable. To set the masks, (observing from the bitmask example above) using the <code>| </code>(OR) operation would successfully do so. Clearing the mask however would require using a NAND operation, which would set the bits to low. So in the script, the mask bits will first be inverted using <code>~</code> and then the AND <code>(&)</code> operation will be applied. A Boolean is used to track the alternation between the set and clear commands. 
+  </p>
+
+  <code-block>
+    
+import re 
+
+# string of the given code
+mask_string = ("gpio_set_mask(67)gpio_clr_mask(0)gpio_set_mask(20)gpio_clr_mask(3) gpio_set_mask(2) gpio_clr_mask(16)"
+"gpio_set_mask(57) gpio_clr_mask(4)gpio_set_mask(0)gpio_clr_mask(25)gpio_set_mask(5)gpio_clr_mask(2)gpio_set_mask(18)"
+"gpio_clr_mask(65)gpio_set_mask(1)gpio_clr_mask(2)gpio_set_mask(64)gpio_clr_mask(17)gpio_set_mask(2)gpio_clr_mask(0)"
+"gpio_set_mask(1)gpio_clr_mask(6)gpio_set_mask(18)gpio_clr_mask(65)gpio_set_mask(1)gpio_clr_mask(0)gpio_set_mask(4)"
+"gpio_clr_mask(2)gpio_set_mask(0)gpio_clr_mask(0)gpio_set_mask(64)gpio_clr_mask(16)gpio_set_mask(16)gpio_clr_mask(64)"
+"gpio_set_mask(2)gpio_clr_mask(4)gpio_set_mask(0)gpio_clr_mask(3)gpio_set_mask(9)gpio_clr_mask(0)gpio_set_mask(0)"
+"gpio_clr_mask(1)gpio_set_mask(0)gpio_clr_mask(8)gpio_set_mask(8)gpio_clr_mask(0);gpio_set_mask(65)gpio_clr_mask(24)"
+"gpio_set_mask(22)gpio_clr_mask(64)gpio_set_mask(0)gpio_clr_mask(0)gpio_set_mask(0)gpio_clr_mask(5)gpio_set_mask(0)"
+"gpio_clr_mask(2)gpio_set_mask(65)gpio_clr_mask(16)gpio_set_mask(22)gpio_clr_mask(65)gpio_set_mask(1)gpio_clr_mask(6)"
+"gpio_set_mask(4)gpio_clr_mask(0)gpio_set_mask(66)gpio_clr_mask(21)gpio_set_mask(1)gpio_clr_mask(0)gpio_set_mask(0)"
+"gpio_clr_mask(2)gpio_set_mask(24)gpio_clr_mask(65)gpio_set_mask(67)gpio_clr_mask(24)gpio_set_mask(24)gpio_clr_mask(67)"
+"gpio_set_mask(2)gpio_clr_mask(8)gpio_set_mask(65)gpio_clr_mask(18)gpio_set_mask(16)gpio_clr_mask(64)gpio_set_mask(2)"
+"gpio_clr_mask(0)gpio_set_mask(68)gpio_clr_mask(19)gpio_set_mask(19)gpio_clr_mask(64)gpio_set_mask(72)gpio_clr_mask(2)"
+"gpio_set_mask(2)gpio_clr_mask(117)gpio_put_all(0)")
+
+#find all the mask values from the given code and store them in an array
+masks = re.findall(r"\(\s*\+?(-?\d+)\s*\)", mask_string)
+
+# alternate between set_mask and clr_mask using a boolean
+bitmask = True
+
+# global value / set as 0 initally 
+val = 0
+
+# flag's string
+flag = ""
+
+for mask in masks:
+    if bitmask:
+        # if it is a set_mask, then use the OR operation
+        val = val | int(mask)
+    else:
+        #if it is a clr_mask, then invert the mask and use NAND operation
+        val = val & ~int(mask)
+
+        # find the ascii character value of the value and store it in the flag
+        flag = flag + (chr(val))
+        
+    # switch the bitmask boolean value
+    bitmask = not bitmask
+
+print(flag)
+</code-block>
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Four/script.png">
+  </figure>
+  <p>
+     The code, when run, prints the flag CTF{be65dfa2355e5309808a7720a615bca8c82a13d7}. Inputting that flag into the answer box, the task is successfully completed!</p>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Four/taskcompleted.png">
+  </figure>
+</div>
+  </div>
+  </div>
+
+</section>
+
+
+</body>
+</html>

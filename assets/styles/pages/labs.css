@@ -1,0 +1,70 @@
+/* Labs and Learning Page css */
+@import url('../components/card.css');
+.labs {
+  background-color: var(--maximum-yellow-red_a10);
+  padding-block-start: calc(var(--section-padding) + 60px);
+}
+
+.labs-list {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 32px;
+  max-width:1200px;
+  justify-items: center;
+}
+@media (max-width: 900px) {
+  .labs-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small screens: 1 card per row */
+@media (max-width: 600px) {
+  .labs-list {
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #f9c6d1; /* soft pink */
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px; /* pill shape */
+  line-height: 1;
+  z-index: 2;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.card-text-wrapper p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content .btn {
+  margin-top: auto;
+  align-self: center; /* Optional: to center horizontally */
+}
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vedanshee | CCTV</title>
+  <meta name="title" content="Vedanshee | CCTV">
+  <meta name="description" content="This is a personal portfolio made by Vedanshee">
+
+  <link rel="stylesheet" href="../assets/styles/root.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/pages/labs.css">
+  <link rel="stylesheet" href="../assets/styles/components/card.css">
+  <link rel="stylesheet" href="../assets/styles/pages/writeups.css">
+
+</head>
+<body>
+
+<section id="cctv">
+
+<button class="btn btn-small btn-primary" onclick="window.location.href='../labs&learning.html'">back</button>
+<div class = "container">
+  <h1>CCTV – Task 1</h1>
+  <p><strong>By Vedanshee Patel</strong></p>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/One/OneIntro.png" alt="CCTV Mission Image">
+  </figure>
+
+  <h2>🕵️‍♀️ Story</h2>
+  <p class="outlined">
+    <strong>Novosibirsk – Chemical Plant</strong><br>
+    You must wonder why we have summoned you, AGENT? It has come to our attention that something terrible is about to take place. There is still time to prevent the disaster, and we could not think of anyone more suited for this task than you. We believe that if you can’t solve this quest, neither can anybody else. You have to travel to Novosibirsk, and investigate a suspicious chemical plant. This mission must be executed in secrecy. It’s classified, and it regards the safety of the whole world, therefore we can’t tell you anything more just yet. Go now, you have the fate of the world in your hands.
+  </p>
+
+  <h2>🧪 Challenge – CCTV (Reverse Engineering)</h2>
+  <div class="outlined">
+  <p>
+    You arrive at your destination. The weather isn’t great, so you figure there’s no reason to stay outside and you make your way to one of the buildings. No one bothered you so far, so you decide to play it bold - you make yourself a cup of coffee in the social area like you totally belong here and proceed to find an empty room with a desk and a chair. You pull out our laptop, hook it up to the ethernet socket in the wall, and quickly find an internal CCTV panel - that’s a way better way to look around unnoticed. Only problem is… it wants a password.
+  </p>
+
+  <a href="https://cctv-web.2021.ctfcompetition.com/" target="_blank">🔗 Access CCTV Panel</a>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/One/WrongPwd.png" alt="CCTV login prompt">
+  </figure>
+</div>
+  <h2>🧠 Solution Process</h2>
+  <div class="outlined">
+  <p>
+    Opening the link took me to a website asking for a password. I attempted to login by entering a random password, however an alert appeared saying the password is wrong. Seeing that the challenge is said to be a reverse engineering one, I decided to view the source code by pressing <code>Ctrl + U</code>. Looking through the code, I found a <code>checkPassword():</code>function, which seemed to be checking if an entered password matched the correct one. 
+  </p>
+
+  <code-block>const checkPassword = () => {
+  const v = document.getElementById("password").value;
+  const p = Array.from(v).map(a => 0xCafe + a.charCodeAt(0));
+  if(p[0] === 52037 &&
+     p[6] === 52081 &&
+     p[5] === 52063 &&
+     ...
+     p[11] === 52066) {
+    window.location.replace(v + ".html");
+  } else {
+    alert("Wrong password!");
+  }
+}
+</code-block>
+
+  <p>
+    Starting from analyzing the script; it converts the input password into an array, then each character is converted into its ASCII value and added to 0xCafe (hexadecimal for 51966). So, from here, to find the password, we just have to reverse the steps from the JavaScript code. To do so, I made a small python script which when executed printed the CCTV panel’s password; “GoodPassword”.
+
+  <code-block># reverse-engineer password from known values
+pass_arr = [52037, 52077, 52077, 52066, 52046, 
+            52063, 52081, 52081, 52085, 52077, 
+            52080, 52066]
+
+for char in pass_arr:
+    print(chr(char - 0xcafe), end="")</code-block>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/One/Code.png"Python output showing password">
+    <figcaption>Python output: <strong>GoodPassword</strong></figcaption>
+  </figure>
+
+  <p>
+    Entering this password redirected the page and revealed the flag at the bottom:
+  </p>
+
+  <blockquote>CTF{IJustHopeThisIsNotOnShodan}</blockquote>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/One/LogIn.png" alt="Flag screen part 1">
+  </figure>
+</div>
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/One/TaskCompleted.png" alt="Flag screen part 2">
+  </figure>
+  </div>
+  </div>
+
+</section>
+
+
+</body>
+</html>

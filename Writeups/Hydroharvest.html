@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Vedanshee | Hydroharvest</title>
+  <meta name="title" content="Vedanshee | Hydroharvest">
+  <meta name="description" content="This is a personal portfolio made by Vedanshee">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../assets/styles/root.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/pages/labs.css">
+  <link rel="stylesheet" href="../assets/styles/components/card.css">
+  <link rel="stylesheet" href="../assets/styles/pages/writeups.css">
+
+</head>
+
+<section id="hydroharvest">
+    <button class="btn btn-small btn-primary" onclick="window.location.href='../labs&learning.html'">back</button>
+  <div class="container">
+    <h1>HydroHarvest: Small-Scale Hydroelectric Power Generator</h1>
+    <p><strong>Course:</strong> SYDE 361</p>
+    <p><strong>Summer 2024</strong></p>
+
+    <h2>🛠️ The Challenge</h2>
+    <p class="outlined">
+     What happens when a group of engineering students are asked to turn water flow into a regulated 5V electrical output… with no step-by-step guide, limited resources, and a tight timeline? You get a system that leaks a little, sparks a lot of creativity, and teaches more than any textbook ever could. The goal was to design and build a fully functional electromechanical system that could use water power to generate electricity and charge a device via USB. We were given a generator and basic lab access, everything else, from circuit design to 3D printing, was on us.
+    </p>
+
+    <h2>🧩 Systems Design</h2>
+    <ul class="outlined">
+      <li>💧 <strong>Flow:</strong> Direct and optimize water delivery through pipe systems, ensuring steady and controlled flow.</li>
+      <li>🔁 <strong>Mechanical:</strong> Design and prototype a turbine system to extract usable rotational energy from water</li>
+      <li>⚡ <strong>Electrical:</strong> Convert rotational energy into a stable 5V DC output using rectifiers and voltage regulators.</li>
+    </ul>
+
+    <h2>⚙️ The Design Process</h2>
+    <ul class="outlined">
+      <li><strong>Early Stage:</strong>We explored how to test and characterize the Nema-17 generator, brainstormed torque measurement setups, and created test plans to investigate relationships between voltage, torque, and RPM.</li>
+      <li><strong>Mid-Stage:</strong> Designed a two-rectifier system to combine outputs, and troubleshot power inconsistencies (turns out, input channels really matter).</li>
+      <li><strong>Late Stage</strong>: Developed the turbine housing and ran several full system tests. We faced issues with bearing-shaft fit and a pipe burst that soaked half the team (😅).To fix these, we iterated on the turbine and nozzle design, added flex couplings and hose clamps to control leaks, sourced new parts when needed, and reprinted components to improve sealing and fit. Each test revealed small failures that led to quick design updates and a better understanding of how all parts must work together.</li>
+    </ul>
+
+    <h2>🔍 My Role</h2>
+
+<ul class="outlined">
+    <p>
+  I co-led the Electrical team, where I:
+</p>
+  <li>◾ Designed and tested bridge rectifier circuits to convert AC to DC</li>
+  <li>◾ Built and troubleshooted a voltage regulator circuit when our buck converter failed just before demo day</li>
+  <li>◾ Used oscilloscopes and multimeters to analyze waveforms, capacitor smoothing, and output stability</li>
+  <li>◾ Soldered and tested circuits on custom PCBs</li>
+  <li>◾ Worked closely with the Mechanical team to match turbine RPM output with our circuit input specs</li>
+
+<p>
+  Beyond technical tasks, I helped lead team debriefs, coordinated progress tracking, and facilitated cross-team discussions to manage system-level integration.
+</p>
+</ul>
+
+<h2>🧪 Final Outcome</h2>
+<ul class="outlined">
+  <li>✅ Delivered 5V regulated output from a water-powered generator (no external supply!)</li>
+  <li>✅ Assembled and soldered a custom PCB with working rectifier + linear voltage regulator</li>
+  <li>✅ Built a functioning and stable turbine + 3D-printed case + flow system with minimal leaks</li>
+  <li>💡 Max power achieved: ~0.25W (we then understood <em>torque</em> matters more than RPM😅 for power delivery).</li>
+</ul>
+
+<h2>🎓 What I Gained</h2>
+
+<ul class="outlined">
+    <p>
+  This was more than just an electrical project, it was a systems engineering experience. I gained:
+</p>
+  <li>◾ Practical skills in circuit design, signal testing, and voltage regulation</li>
+  <li>◾ Confidence in using lab tools like oscilloscopes, function generators, and PCB soldering beyond just structured lab courses</li>
+  <li>◾ Cross-team leadership and the ability to manage mechanical-electrical dependencies</li>
+  <li>◾ A deeper understanding of how mechanical and electrical systems truly connect and what it takes to make them work, even when things go sideways</li>
+</ul>
+
+
+    <h2>📸 Project Gallery</h2>
+    <div class="image-slider">
+        <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/demo_system.jpg" alt="Final Turbine">
+        <p class="slide-caption">Our system during Demo Day!</p>
+      </div>
+      <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/zoomed_in_turbine.jpg" alt="Zoomed In Turbine">
+        <p class="slide-caption">Our system in action!</p>
+      </div>
+      <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/sketch.png" alt="Bridge rectifier circuit">
+        <p class="slide-caption">Basic Prototype Sketch</p>
+      </div>
+      <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/breadboard.jpg" alt="Circuit Breadboard">
+        <p class="slide-caption">Circuit developed on breadboard</p>
+      </div>
+      <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/circuit_test.jpg" alt="Circuit Test 1">
+        <p class="slide-caption">Testing our circuits</p>
+      </div>
+       <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/Soldering.jpg" alt="Soldering">
+        <p class="slide-caption">Me soldering the circuit!</p>
+      </div>
+      <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/Complete_circuit.jpg" alt="Final Circuit">
+        <p class="slide-caption">Completed circuit design on PCB</p>
+      </div>
+      <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/Turbine_housing.jpg" alt="Turbine Housing">
+        <p class="slide-caption">3D Printed turbine housing</p>
+      </div>
+      <div class="slide">
+        <img src="../assets/images/Labs/Hydroharvest_gallery/Base.jpg" alt="Base">
+        <p class="slide-caption">Our cute base of the system</p>
+      </div>
+    
+    </div>
+  
+  </div>
+</section>
+</html>

@@ -2,317 +2,108 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="'X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!--==================== UNICONS ====================-->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-        
-        <!--==================== SWIPER CSS ====================-->
-        <!--<link rel="stylesheet" href="">-->
-        
-        <!--==================== CSS ====================-->
-        <link rel="stylesheet" href="assets/styles/styles.css">
+       <!-- CSS file links -->
+        <link rel="stylesheet" href="assets/styles/main.css">
+        <link rel="stylesheet" href="assets/styles/root.css">
+        <link rel="stylesheet" href="assets/styles/components/card.css">
+      
+        <title> Vedanshee Patel </title>
+        <body>
+          <header class="header" data-header>
+            <div class="container">
+                <a href="#" class="logo">
+                <img src="./assets/images/Logo.png" width="200" height="350" alt="Vedanshee home">
+                </a>
+                <nav class="navbar" data-navbar>
+                  <ul class="navbar-list">
+                    <li class="navbar-item">
+                        <a href="#" class="label-lg navbar-link has-after active">Home</a>
+                    </li>
 
-        <title>Vedanshee Patel</title>
-    </head>
-    <body>
-        <!--==================== HEADER ====================-->
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#" class="nav__logo">Vedanshee</a>
+                    <li class="navbar-item">
+                        <a href="./work.html" class="label-lg navbar-link has-after">Work</a>
+                    </li>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">
-                                <i class="uil uil-estate nav__icon"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#projects" class="nav__link">
-                                <i class="uil uil-briefcase-alt nav__icon"></i> Projects
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#writeups" class="nav__link">
-                                <i class="uil uil-edit nav__icon"></i> Writeups
-                            </a>
-                        </li>
-                    </ul>
-                    <i class="uil uil-times nav__close" id="nav-close"></i>
+                    <li class="navbar-item">
+                        <a href="./projects.html" class="label-lg navbar-link has-after">Projects</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="./labs&learning.html" class="label-lg navbar-link has-after">Labs & Learnings</a>
+                    </li>
+                  </ul>
+                </nav>
+                  <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+                  <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+                  </button>
                 </div>
-
-                <div class="nav__btns">
-                   <!-- theme change -->
-                   <i class="uil uil-moon change-theme" id="theme-button"></i>
-
-                    <div class="nav__toggle" id="nav-toggle">
-                        <i class="uil uil-apps"></i>
-                </div>
+            </header>
+          <!-- about me -->
+            <main>
+              <article>
+                <section class="section about" aria-label="home">
+                  <div class="container">
+                    <div class="about-content">
+                      <p class="about-subtitle">Hi, nice to meet you!</p>
+                        <h1 class="headline-lg">I'm Vedanshee Patel</h1> 
+                        <a href="#description" class="btn btn-primary">Let's Start</a>
+                    </div>
+                      <figure class="about-banner">
+                        <img src="./assets/images/ProfilePic.png" 
+                          alt="Vedanshee profile picture" class="w-100">
+                      </figure>
+                    </div>
+                </section>
+          <!-- More about me -->
+            <section class="section description" aria-label="about me" id="description">
+            <div class="container">
+              <figure class="desription-banner">
+                <img src="./assets/images/ProfilePic_2.png" 
+                alt="Vedanshee" class="w-90">
+              </figure>
+            <div class="description-content">
+            <h2 class="title-lg">Systems Design Engineering Student at the University of Waterloo.</h2>
+              <p class="body-md section-text">
+                I'm a Systems Design Engineering student with a growing interest in network engineering, infrastructure, and technical program management. While I'm still exploring which path excites me most, I'm passionate about understanding how complex systems work and am always eager to dive into new fields, tools, and technologies as I shape my career.
+              </p>
+            <div class="wrapper">
+              <a href="./contact.html" class="btn btn-primary" id="contactBtn">Contact Me</a>
+              <a href="./projects.html" class="btn btn-secondary">Projects</a>
             </div>
-            </nav>
-        </header>
-
-        <!--==================== MAIN ====================-->
-        <main class="main">
-            <!--==================== HOME ====================-->
-            <section class="home section" id="home">
-                <div class="home__container container grid">
-                    <div class="home__content grid">
-                        <div class="home__social">
-                            <a href="https://www.linkedin.com/in/vedanshee-patel/" target="_blank" class="home_social-icon">
-                                <i class="uil uil-linkedin-alt"></i>
-                            </a>
-
-                            <a href="https://github.com/vedansheepatel" target="_blank" class="home_social-icon">
-                                <i class="uil uil-github-alt"></i>
-                            </a>
-
-                            <a href="mailto:v267pate@uwaterloo.ca" target="_blank" class="home_social-icon">
-                                <i class="uil uil-envelope"></i>
-                            </a>
-                        </div>
-                        <div class="home__img">
-                            <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <mask id="mask0" mask-type="alpha">
-                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-                                </mask>
-                                <g mask="url(#mask0)">
-                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-                                    
-                                    <image class="home__blob-img" xlink:href="assets/img/pfp.png"/>
-                                </g>
-                            </svg>
-                        </div>
-
-                        <div class="home__data">
-                            <h1 class="home__title">Hi, I'm Vedanshee Patel</h1>
-                            <h3 class="home__subtitle">Systems Design Engineering Student @UWaterloo</h3>
-                            <p class="home__description"> Seeking Summer 2025 Internship Opportunites</p>
-                            <a href="./assets/Resume/Vedanshee Patel - Resume.pdf" download="Vedanshee Patel Resume" class="button button--flex">
-                              Download CV <i class="uil uil-import"></i>
-                            </a>
-                          </div>
-                    </div>
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-button button--flex"></a>
-                            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-                            <span class="home__scroll-name">Scroll Down</span>
-                            <i class="uil uil-arrow-down home__scroll-arrow"></i>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== PROJECTS ====================-->
-            
-            <section class="projects section" id="projects">
-                <div class="container">
-
-                    <p class="section__subtitle">Portfolio</p>
-          
-                    <h2 class="section__title">My Projects</h2>
-          
-                    <ul class="portfolio-list">
-                      <li>
-                        <div class="portfolio-card" style="background-image: url('./assets/img/CycleQuest.jpg')">
-                          <div class="card-content">
-          
-                            <p class="card-subtitle">Game</p>
-          
-                            <h3 class=" card-title">Cycle Quest</h3>
-
-                              <a href="https://github.com/miaisakovic/cycle-quest" class="round_button round_button--flex">
-                              View Project <i class="uil uil-arrow-circle-right"></i>
-                              </a>
-          
-                          </div>
-                      
-                      </li>
-                      <li>
-                        <div class="portfolio-card" style="background-image: url('./assets/img/honETHly.jpg')">
-                          <div class="card-content">
-          
-                            <p class="card-subtitle">Web-App</p>
-          
-                            <h3 class=" card-title">honETHly</h3>
-
-                              <a href="https://github.com/mat-ng/honethly" class="round_button round_button--flex">
-                              View Project <i class="uil uil-arrow-circle-right"></i>
-                              </a>
-          
-                          </div>
-                      
-                      </li>
-                      <li>
-                        <div class="portfolio-card" style="background-image: url('./assets/img/projectify.jpg')">
-                          <div class="card-content">
-          
-                            <p class="card-subtitle">App</p>
-          
-                            <h3 class=" card-title">Projectify</h3>
-
-                              <a href="https://github.com/niharikasrivatsa/Projectify" class="round_button round_button--flex">
-                              View Project <i class="uil uil-arrow-circle-right"></i>
-                              </a>
-          
-                          </div>
-                      
-                      </li>
-          
-                      <li>
-                        <div class="portfolio-card" style="background-image: url('./assets/img/discordbot.jpg')">
-                          <div class="card-content">
-          
-                            <p class="card-subtitle">Discord</p>
-          
-                            <h3 class="card-title">Drama Bot</h3>
-          
-                            <a href="https://github.com/vedansheepatel/Discord_Bot" class="round_button round_button--flex">
-                              View Project <i class="uil uil-arrow-circle-right"></i>
-                              </a>
-                            
-          
-                          </div>
-                     
-                      </li>
-                      </ul>
-                    </section>
-
-                
-            </section>
-
-            <!--==================== WRITEUPS ====================-->
-            <section class="section writeup" id="writeups">
-                <div class="container">
-        
-                  <p class="section__subtitle">Latest</p>
-        
-                  <h2 class="h2 section__title">Checkout My Recent Writeups</h2>
-        
-                  <ul class="writeup-list">
-        
-                    <li>
-                      <div class="writeup-card">
-        
-                        <figure class="card-banner">
-                          <a href="Write_Ups/google-ctf/CCTV.html">
-                            <img src="./assets/img/task1.png" width="1181" height="843" loading="lazy"
-                              alt="CTF Quest 1" class="img-cover">
-                          </a>
-                        </figure>
-                        <h3 class="card-tag">
-                          <a href="Write_Ups/google-ctf/CCTV.html">CCTV</a>
-                        </h3>
-                        <h3 class="card-title">
-                          <a href="Write_Ups/google-ctf/CCTV.html">Google CTF Beginner Quest 1</a>
-                        </h3>
-        
-                      </div>
-                    </li>
-        
-                    <li>
-                      <div class="writeup-card">
-        
-                        <figure class="card-banner">
-                          <a href="Write_Ups/google-ctf/Logic Lock.html">
-                            <img src="./assets/img/task2.png" width="1181" height="843" loading="lazy"
-                              alt="CTF Quest 2" class="img-cover">
-                          </a>
-                        </figure>
-        
-                        <h3 class="card-tag">
-                          <a href="Write_Ups/google-ctf/Logic Lock.html">LOGIC LOCK</a>
-                        </h3>
-        
-                        <h3 class="card-title">
-                          <a href="Write_Ups/google-ctf/Logic Lock.html">Google CTF Beginner Quest 2</a>
-                        </h3>
-        
-                      </div>
-                    </li>
-                    <li>
-                        <div class="writeup-card">
-          
-                          <figure class="card-banner">
-                            <a href="Write_Ups/google-ctf/Streets High Speed Chase.html">
-                              <img src="./assets/img/task3.png" width="1181" height="843" loading="lazy"
-                                alt="CTF Quest 3" class="img-cover">
-                            </a>
-                          </figure>
-          
-                          <h3 class="card-tag">
-                            <a href="Write_Ups/google-ctf/Streets High Speed Chase.html">HIGH SPEED CHASE</a>
-                          </h3>
-          
-                          <h3 class="card-title">
-                            <a href="Write_Ups/google-ctf/Streets High Speed Chase.html">Google CTF Beginner Quest 3</a>
-                          </h3>
-          
-                        </div>
-                      </li>
-                      <div class="writeup-card">
-          
-                        <figure class="card-banner">
-                          <a href="Write_Ups/google-ctf/Electronics Research Lab.html">
-                            <img src="./assets/img/task4.png" width="1181" height="843" loading="lazy"
-                              alt="CTF Quest 4" class="img-cover">
-                          </a>
-                        </figure>
-        
-                        <h3 class="card-tag">
-                          <a href="Write_Ups/google-ctf/Electronics Research Lab.html">ELECTRONICS RESEARCH LAB</a>
-                        </h3>
-        
-                        <h3 class="card-title">
-                          <a href="Write_Ups/google-ctf/Electronics Research Lab.html">Google CTF Beginner Quest 4</a>
-                        </h3>
-        
-                      </div>
-                      
-                </ul>
-
-                </div>
-              </section>        
-        </main>
-
-        <!--==================== FOOTER ====================-->
-        <footer class="footer">
-         <div class="footer__bg">
-          <div class="footer__container container grid">
-             <div>
-              <h1 class="footer__title">Vedanshee</h1>
-              <span class="footer__subtitle">Systems Design Engineering Student</span>
-             </div> 
-
-             <ul class ="footer__links">
-              <li>
-                <a href="#projects" class="footer__link">Projects</a>
-              </li>
-              <li>
-                <a href="#writeups" class="footer__link">Writeups</a>
-              </li>
-             </ul>
           </div>
-          <p class="footer__copy">&#169; Developed By Vedanshee Patel</p>
-         </div>
-        </footer>
-        
-        <!--==================== SCROLL TOP ====================-->
-        <a href="#" class="scrollup" id="scroll-up">
-          <i class="uil uil-arrow-up scrollup__icon"></i>
-        </a>
+        </div>
+  <!-- Contact Me -->
+  <div class="popup-overlay" id="popup">
+    <div class="card card-md contact-card">
+      <button class="close-btn" id="closePopup">✕
+      <h3 class="title-sm">Let’s Connect</h3>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/vedanshee-patel/" target="_blank" class="home_social-icon">
+        <i class="uil uil-linkedin-alt"></i>
+      </a>
+      <a href="mailto:v267pate@uwaterloo.ca" target="_blank" class="home_social-icon">
+        <i class="uil uil-envelope-alt"></i>
+      </a>
+      <a href="https://github.com/vedansheepatel" target="_blank" class="home_social-icon">
+        <i class="uil uil-github-alt"></i>
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+</article>
+</main>
+<!-- footer -->
 
-        <!--==================== SWIPER JS ====================-->
-        <script src=""></script>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-center">Systems Design Engineering</p>
+      <p class="text-center">&copy; 2025 Vedanshee Patel</p>
 
-        <!--==================== MAIN JS ====================-->
-        <script src="assets/js/main.js"></script>
-    </body>
-</html>
-
+    </div>
+  </footer>
+    <script src="assets/js/main.js"></script>
+</body>

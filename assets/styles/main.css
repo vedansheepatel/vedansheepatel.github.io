@@ -1,0 +1,149 @@
+
+/*Header CSS*/
+.header { background-color: transparent !important; }
+.header.active { background-color: var(--white) !important; }
+
+.about {
+  position: relative;
+  background-color: var(--maximum-yellow-red_a10);
+  padding-block-start: calc(var(--section-padding) + 60px);
+  text-align: center;
+  overflow: auto;
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  bottom: 70%;
+  right: -75%;
+  background-color: var(--maximum-yellow-red_a40);
+  transform: rotate(-45deg);
+  border-radius: var(--radius-50);
+  z-index: -1;
+}
+
+.about .container {
+  display: grid;
+  gap: 70px;
+}
+
+.about-subtitle {
+  color: var(--jet);
+  text-transform: uppercase;
+  font-weight: var(--fw-600);
+  letter-spacing: 3px;
+  margin-block-end: 20px;
+}
+
+.about-text { margin-block: 25px; }
+
+.about .btn { margin-inline: auto; }
+
+.about-banner {
+  max-width: max-content;
+  margin-inline: auto;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: inline mandatory;
+}
+
+
+.slider-item { scroll-snap-align: start; } 
+@media (min-width: 768px) {
+
+/* About css */
+
+  .about-text { --fs-18: 2rem; }
+
+  .about::after {
+    top: -20%;
+    bottom: 50%;
+    left: 48%;
+    right: -15%;
+  }
+
+}
+
+
+
+/**
+ * responsive for large than 992px screen
+ */
+
+@media (min-width: 992px) {
+
+/* Description and about css */
+
+  :is( .about, .skill) .container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  
+/* About */
+
+  .about { text-align: left; }
+
+  .about .btn { margin-inline: 0; }
+
+
+}
+
+/* Description */
+.description .container {
+  display: flex;
+  gap: 50px;
+}
+
+.description .section-text { margin-block: 25px 16px; }
+
+.description .wrapper {
+  margin-block-start: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px 25px;
+}
+
+.btn {
+  background-color: var(--purple);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
+  text-transform: uppercase;
+  max-width: max-content;
+  letter-spacing: 2px;
+  padding: 10px 22px;
+  box-shadow: 6px 6px 0 -1px var(--shadow-color, var(--jet));
+  transition: var(--transition-1);
+}
+
+.btn:is(:hover, :focus-visible) {
+  background-color: var(--hover-bg, var(--jet));
+  box-shadow: 5px 5px 0 -2px var(--hover-shadow-color, var(--purple));
+}
+
+.btn-primary,
+.btn-secondary { color: var(--white); }
+
+.btn-secondary {
+  background-color: var(--jet);
+  --shadow-color: var(--purple);
+  --hover-bg: var(--purple);
+  --hover-shadow-color: var(--jet);
+}
+
+.btn-tertiary {
+  color: var(--jet);
+  background-color: var(--maximum-yellow-red);
+  --shadow-color: var(--orange-red);
+  --hover-bg: var(--orange-red);
+  --hover-shadow-color: var(--maximum-yellow-red);
+}
+
+.btn-tertiary:is(:hover, :focus-visible) { color: var(--white); }

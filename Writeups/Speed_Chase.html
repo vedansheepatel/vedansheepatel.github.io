@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vedanshee | High Speed Chase</title>
+  <meta name="title" content="Vedanshee | High Speed Chase">
+  <meta name="description" content="This is a personal portfolio made by Vedanshee">
+
+  <link rel="stylesheet" href="../assets/styles/root.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/pages/labs.css">
+  <link rel="stylesheet" href="../assets/styles/components/card.css">
+  <link rel="stylesheet" href="../assets/styles/pages/writeups.css">
+
+</head>
+<body>
+
+<section id="highspeedchase">
+
+<button class="btn btn-small btn-primary" onclick="window.location.href='../labs&learning.html'">back</button>
+<div class = "container">
+  <h1>High Speed Chase – Task 3</h1>
+  <p><strong>By Vedanshee Patel</strong></p>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Three/intro.png" alt="Speed Chase Mission">
+  </figure>
+
+  <h2>🕵️‍♀️ Story</h2>
+  <p class="outlined">
+    <strong>Moscow – The Streets</strong><br>
+    The person drives into a narrow back alley and despite the danger you try to continue on and give chase. It is impossible to see who they are, clothed all in black and a helmet covering the face. You need to intercept them somehow.
+  </p>
+
+  <h2>🧪 Challenge – High Speed Chase (Misc)</h2>
+  <div class="outlined">
+  <p>
+    You chase them through city streets until you reach the high way. The traffic is pretty rough for a car and you see them gaining ground - should have hotwired a motorbike as well! Too late for that. You look around your car to spot anything useful, and you notice this is actually one of the new self driving cars. You turn on the autopilot, pull out your laptop, connect it to the system, and enter the not-so-hidden developer’s mode. It’s time to re-program the autopilot to be a bit more useful in a chase! To make it easier, you replace the in-car LiDAR feed with a feed from an overhead sattelite - you also display it on the the entertainment system. Now all that’s left to do, is to write a better controlCar function!
+  </p>
+
+  <a href="https://high-speed-chase-web.2021.ctfcompetition.com/" target="_blank">🔗 Access Code Editor and Challenge Description</a>
+
+</div>
+  <h2>🧠 Solution Process</h2>
+  <div class="outlined">
+  <p>
+    Here is the script I wrote to control the car:
+  </p>
+
+  <code-block>function controlCar(scanArray){
+
+//set vars to 0
+var max_distance = scanArray[0];
+var index = 0;
+
+//iterate through indexs (starting from 1)
+//find the area where there is the most distance between the car and surrounding cars
+    for (let i = 1; i <= 17; i++) {
+        if (max_distance <= scanArray[i]) {
+            max_distance = scanArray[i];
+            index= i-1;
+        }
+    }
+		
+		//if car is at the spot of the greatest distance, keep the car there
+    if (index == 8) {
+        return 0;
+		//if max dist is on left of car, steer to the left 
+    } else if (index < 8) {
+        return -1;
+		//if max dist is on right, steer to the right
+    } else {
+        return 1;
+    }
+}
+</code-block>
+
+  <p>
+    When the script is run, the car successfully completes the course and the flag for the task appears.</p>
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Three/flag.png">
+  </figure>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Three/taskcomplete.png">
+  </figure>
+</div>
+  </div>
+  </div>
+
+</section>
+
+
+</body>
+</html>

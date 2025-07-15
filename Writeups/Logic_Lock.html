@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vedanshee | Logic Lock</title>
+  <meta name="title" content="Vedanshee | Logic Lock">
+  <meta name="description" content="This is a personal portfolio made by Vedanshee">
+
+  <link rel="stylesheet" href="../assets/styles/root.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/pages/labs.css">
+  <link rel="stylesheet" href="../assets/styles/components/card.css">
+  <link rel="stylesheet" href="../assets/styles/pages/writeups.css">
+
+</head>
+<body>
+
+<section id="logiclock">
+
+<button class="btn btn-small btn-primary" onclick="window.location.href='../labs&learning.html'">back</button>
+<div class = "container">
+  <h1>Logic Lock – Task 2</h1>
+  <p><strong>By Vedanshee Patel</strong></p>
+
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Two/task2.png" alt="Logic Lock Mission">
+  </figure>
+
+  <h2>🕵️‍♀️ Story</h2>
+  <p class="outlined">
+    <strong>Moscow – Apartment</strong><br>
+      It’s a cold day, and the snow is falling horizontally. It pierces your sight. You better use those extra pairs of socks that you were strangely given by the driver. Someone is waving on the other side of the street. You walk over to her. “Hi AGENT, I’m AGENT X, we’ve found the apartment of a person that we suspect got something to do with the mission. Come along!”
+  </p>
+
+  <h2>🧪 Challenge – Logic Lock (Misc)</h2>
+  <div class="outlined">
+  <p>
+    It turned out suspect’s apartment has an electronic lock. After analyzing the PCB and looking up the chips you come to the conclusion that it’s just a set of logic gates!
+  </p>
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Two/file.png" alt="CCTV login prompt">
+  </figure>
+</div>
+  <h2>🧠 Solution Process</h2>
+  <div class="outlined">
+  <p>
+   Having learnt logic gates in my circuits course at University, this puzzle was fairly simple to solve. We are given the end output, so to determine which inputs are set, we just need to work backwards using the various logic gate functions.  
+  </p>
+  <p>
+    Here are the truth tables for the logic gates used in this puzzle:
+</p>
+ <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Two/gates.png" alt="Logic Gates">
+  </figure>
+ <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Two/solution.png" alt="Solution">
+  </figure>
+
+  <blockquote>After solving, we find that the inputs B,C,F,I,J are set. So the resulting flag would be “CTF{BCFIJ}”</blockquote>
+
+</div>
+  <figure>
+    <img src="../assets/images/Labs/CTF_gallery/Two/taskcompleted.png" alt="Flag screen">
+  </figure>
+  </div>
+  </div>
+
+</section>
+
+
+</body>
+</html>

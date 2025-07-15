@@ -1,0 +1,47 @@
+/* Work Page css */
+
+@import url('../components/card.css');
+
+
+
+.work { padding-block-start: calc(var(--section-padding) + 60px); }
+
+.work-list {
+  display: grid;
+  gap: 25px;
+}
+
+.card-title { margin-block-end: 10px; }
+
+.card ion-icon { font-size: 3.2rem; }
+
+.card .body-sm { color: var(--jet); }
+
+
+.card-media {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or 'cover' if you want to fill the area */
+  display: block;
+}
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for large than 768px screen
+ */
+
+@media (min-width: 768px) {
+
+  .service-list { grid-template-columns: 1fr 1fr; }
+
+}

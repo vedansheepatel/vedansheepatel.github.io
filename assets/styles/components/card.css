@@ -1,0 +1,152 @@
+.card {
+  box-shadow: 0 0 0 var(--jet);
+  display: flex;
+  transition: var(--transition-1);
+}
+
+.card-md:is(:hover, :focus-within) { box-shadow: 5px 5px 0 var(--jet); }
+
+:is(.card-lg, .card-sm):is(:hover, :focus-within) {
+  box-shadow: 3px 3px 0 var(--jet);
+}
+
+.card,
+.card-media { border: 2px solid var(--jet); }
+
+.card-lg { padding: 25px; }
+
+.card-md { padding: 30px; }
+
+ .card-sm {
+  width: 100%;
+  max-width: 320px;       /* Controls how wide each card gets */
+  box-sizing: border-box;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  height: 270px;
+  width: 600px;
+  overflow:hidden;
+  position: relative;
+}
+
+.card-lg,
+.card-md {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-lg .card-media {
+  width: 100px;
+  height: 100px;
+}
+
+.card-md .card-media {
+  width: 70px;
+  height: 70px;
+}
+
+.card-sm .card-media {
+  width: 60px;
+  height: 60px;
+}
+
+.card-media {
+  background-color: var(--white);
+  color: var(--jet);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow:hidden;
+}
+/**
+ * RESPONSIVE CONTAINER QUERY
+ */
+
+.card-container { container-type: inline-size; }
+
+@container (min-width: 500px) {
+  .card-lg,
+  .card-md { flex-direction: row; }
+}
+
+
+
+/**
+ * RESPONSIVE MEDIA QUERY
+ */
+
+@media (min-width: 768px) {
+
+  .card-lg { padding: 35px; }
+
+  .card-md { padding: 40px; }
+
+  .card-sm { padding: 15px; }
+
+}
+
+/* Fullscreen overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+/* Modal card */
+.contact-card {
+  background-color: var(--white);
+  border: 2px solid var(--jet);
+  border-radius: 12px;
+  padding: 20px 10px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 👈 centers child elements horizontally */
+}
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* Make icons bigger and centered */
+.social-links i {
+  font-size: 3.5rem; /* increase size */
+  color: var(--jet);
+  transition: color 0.3s ease;
+}
+
+.social-links i:hover {
+  color: var(--orange-red);
+}

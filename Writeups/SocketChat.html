@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Vedanshee | Socket Chat</title>
+  <meta name="title" content="Vedanshee | Socket Chat">
+  <meta name="description" content="This is a personal portfolio made by Vedanshee">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../assets/styles/root.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/pages/labs.css">
+  <link rel="stylesheet" href="../assets/styles/components/card.css">
+  <link rel="stylesheet" href="../assets/styles/pages/writeups.css">
+
+</head>
+<body>
+
+<section id="socketchat">
+  <button class="btn btn-small btn-primary" onclick="window.location.href='../labs&learning.html'">back</button>
+<div class="container">
+  <h1>Socket Chat Box — Learning by Building</h1>
+  <p>
+    This project began with a simple goal: build a functional chat application to get hands-on experience with network protocols and understand how real-world client-server communication works.
+  </p>
+
+  <h2>🎯 Purpose</h2>
+  <ul class="outlined">
+    <p>To strengthen foundational knowledge in networking by:</p>
+    <li>◾ Implementing TCP socket communication from scratch</li>
+    <li>◾ Understanding how clients and servers exchange data</li>
+    <li>◾ Learning about ports, IP addresses, and threading</li>
+    <li>◾ Extending functionality incrementally (text-based → GUI-based)</li>
+  </ul>
+
+  <h2>🛠️ Project Evolution</h2>
+  <div class="outlined">
+  <p>
+    I started with a basic TCP echo server that simply sent back whatever the client typed. This helped me understand the fundamentals of socket communication. 
+  </p>
+
+  <figure>
+    <img src="../assets/images/Labs/SocketChat_gallery/echo.png" alt="Echo Server">
+    <figcaption>TCP Echo Server</figcaption>
+  </figure>
+
+  <p>Then, I added multithreading to enable real-time, two-way conversation—so the client could send and receive simultaneously. </p>
+
+  <figure>
+    <img src="../assets/images/Labs/SocketChat_gallery/2_way.png" alt="2 Way Chat">
+    <figcaption>Multithreaded client-server setup using Python sockets</figcaption>
+  </figure>
+  <p>Finally, I wrapped the whole interface in a Tkinter GUI to give it a chat-app feel and make it more user-friendly.</p>
+  <figure>
+    <img src="../assets/images/Labs/SocketChat_gallery/GUI_chat.png" alt="GUI Chat">
+    <figcaption>Basic GUI built with Tkinter to mimic real chat apps</figcaption>
+  </figure>
+  <p>
+    The evolution from command-line text to GUI helped reinforce both backend and frontend integration. I also had to debug real-time performance issues, which provided practical insight into threading and data handling over sockets.
+  </p>
+</div>
+  <h2>🧩 Core Components</h2>
+  <ul class="outlined">
+    <li><code>socket.socket()</code> – Creates a TCP/IP socket</li>
+    <li><code>bind()</code> – Assigns an address and port</li>
+    <li><code>listen()</code> – Tells the socket to wait for connections</li>
+    <li><code>accept()</code> – Accepts a connection from a client</li>
+    <li><code>recv() / sendall()</code> – Handles data transmission</li>
+    <li><code>threading.Thread()</code> – Enables non-blocking, parallel chat</li>
+    <li><code>localhost (127.0.0.1)</code> – Used for local testing</li>
+    <li><code>port 50000</code> – Chosen from the dynamic/private port range</li>
+  </ul>
+
+  <h2>📚 Concept Takeaway</h2>
+  <table>
+    <tr>
+      <th>Concept</th>
+      <th>Takeaway</th>
+    </tr>
+    <tr>
+      <td>Sockets</td>
+      <td>Foundation of network communication</td>
+    </tr>
+    <tr>
+      <td>IP & Ports</td>
+      <td>How devices identify endpoints</td>
+    </tr>
+    <tr>
+      <td>Threading</td>
+      <td>Enables asynchronous operations (crucial for chat apps)</td>
+    </tr>
+    <tr>
+      <td>Client-Server Model</td>
+      <td>Built hands-on understanding of how connections are managed</td>
+    </tr>
+    <tr>
+      <td>Tkinter</td>
+      <td>Integrated frontend with backend logic</td>
+    </tr>
+    <tr>
+      <td>Network Debugging</td>
+      <td>Learned how to spot and resolve live connection issues</td>
+    </tr>
+  </table>
+  </div>
+</section>
+
+</body>
+</html>
