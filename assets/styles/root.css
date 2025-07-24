@@ -341,7 +341,7 @@ body.loaded { overflow: visible; }
   .title-lg { --fs-27: 3.5rem; }
   .headline-lg {
   --fs-45: 5rem;
-  padding-bottom: 3rem; /* or any value you want */
+  padding-bottom: 3rem;
 }
 }
 

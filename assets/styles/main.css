@@ -36,6 +36,12 @@
   letter-spacing: 3px;
   margin-block-end: 20px;
 }
+@media (max-width: 575px) {
+
+  .about-subtitle {
+  padding-top: 5rem;
+}
+}
 
 .about-text { margin-block: 25px; }
 
