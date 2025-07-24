@@ -71,7 +71,14 @@
 
 }
 
+@media (min-width: 575px) {
 
+  .description-banner
+   {
+    max-width: max-content;
+    margin-inline: auto;
+  }
+}
 
 /**
  * responsive for large than 992px screen
@@ -81,7 +88,7 @@
 
 /* Description and about css */
 
-  :is( .about, .skill) .container {
+  :is( .about) .container {
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }

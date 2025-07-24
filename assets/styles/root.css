@@ -226,7 +226,7 @@ body.loaded { overflow: visible; }
   align-items: center;
 }
 
-.nav-toggle-btn {
+.nav-toggle-btn{
   color: var(--jet);
   font-size: 3.8rem;
 }
@@ -336,7 +336,14 @@ body.loaded { overflow: visible; }
   }
 
 }
+@media (max-width: 575px) {
 
+  .title-lg { --fs-27: 3.5rem; }
+  .headline-lg {
+  --fs-45: 5rem;
+  padding-bottom: 3rem; /* or any value you want */
+}
+}
 
 /**
  * responsive for large than 992px screen
